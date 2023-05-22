@@ -1,0 +1,43 @@
+import java.util.*;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		Scanner scn = new Scanner(System.in);
+		
+		int n1 = scn.nextInt();
+		int[] arr1 = new int[n1];
+		for(int i=0; i<n1; i++){
+			arr1[i] = scn.nextInt();
+		}
+		
+		int n2 = scn.nextInt();
+		int[] arr2 = new int[n2];
+		for(int i=0; i<n2; i++){
+			arr2[i] = scn.nextInt();
+		}
+		
+		System.out.println(Arrays.toString(arr1) +"\n"+ Arrays.toString(arr2));
+		
+		HashMap<Integer, Integer> frequency_map = new HashMap<>();
+		for( int val : arr1){
+			if(frequency_map.containsKey(val)){
+				int old_frequency = frequency_map.get(val);
+				int new_frequency = old_frequency + 1;
+				frequency_map.put(val, new_frequency);
+			}else{
+				frequency_map.put(val,1);
+			}
+		}
+		
+		for(int val : arr2){
+			if(frequency_map.containsKey(val)){
+				System.out.print(val + " ");
+				frequency_map.remove(val);
+			}
+		}
+	}
+}
+
+I/P: Array1: [1, 1, 2, 2, 3, 5]
+     Array2: [1, 1, 1, 2, 2, 4, 5]
+O/P: 1 2 5

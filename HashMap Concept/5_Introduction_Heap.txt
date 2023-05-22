@@ -1,0 +1,21 @@
+import java.util.*;
+class Main {
+	public static void main(String args[]) {
+		// Your code goes here
+		PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); //Max Heap
+		//PriorityQueue<Integer> pq = new PriorityQueue<>(); //Min Heap
+		int[] ranks = {22,99,3,11,88,4,1};
+		
+		for(int val : ranks){
+			pq.add(val);
+		}
+		
+		while(pq.size()>0){
+			System.out.print(pq.peek() + " ");
+			pq.remove();
+		}
+	}
+}
+
+o/p: 99 88 22 11 4 3 1 
+ 
